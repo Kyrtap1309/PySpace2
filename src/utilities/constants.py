@@ -15,3 +15,16 @@ ET_TODAY_DATE_MIDNIGHT = spiceypy.utc2et(TODAY_DATE)
 
 # How many Kilometers in AU
 AU_TO_KM = 149_597_871
+
+
+NAIF_PLANETS_ID = {
+    "Sun": 10,
+    "Venus": 299,
+    "Earth": 399,
+    "Moon": 301,
+    "Mars": 4,
+    "Jupiter": 5,
+    "Saturn": 6,
+    "Uran": 7,
+    "Neptun": 8,
+}
