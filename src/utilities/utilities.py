@@ -19,6 +19,7 @@ def get_furnsh_kernel_path(kernel_path):
     furnsh_kernel_path = os.path.join(dir, kernel_path)
     return furnsh_kernel_path
 
+
 def kernels_load(kernels_path):
     """
     Function to load many kernels at once.

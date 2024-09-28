@@ -7,10 +7,8 @@ from ..utilities.constants import AU_TO_KM, ET_TODAY_DATE_MIDNIGHT
 class Earth:
     def __init__(self):
 
+        kernels = ["../../kernels/spk/de432s.bsp", "../../kernels/pck/gm_de431.tpc"]
 
-        kernels = ["../../kernels/spk/de432s.bsp", 
-                   "../../kernels/pck/gm_de431.tpc"]
-        
         kernels_load(kernels)
 
         # Calculating an earth state vector and time of light's travel between
