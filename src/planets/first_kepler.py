@@ -90,6 +90,7 @@ class FirstKepler:
             return self._sun_radius
 
     def __str__(self) -> str:
+
         # Print the starting and end times
         info = f"""\tStart day: {self.init_time_utc_str}
         End day: {self.end_time_utc_str}
@@ -111,7 +112,7 @@ class FirstKepler:
         self,
         save_fig: bool = True,
         dpi: str = 500,
-        fig_name: str = "barycentre_trajectory.png",
+        fig_name: str = "./plots/barycentre_trajectory.png",
     ) -> None:
         # Plotting trajectory of solar system barycentre (only needed x and y coordinates)
         solar_system_barycentre_pos_scalled_plane = (
