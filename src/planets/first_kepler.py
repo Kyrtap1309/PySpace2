@@ -114,6 +114,20 @@ class FirstKepler:
         dpi: str = 500,
         fig_name: str = "./plots/barycentre_trajectory.png",
     ) -> None:
+        
+        """
+        Plot the trajectory of solar system barycentre with relation to the Sun
+
+        Parameters:
+        -----------
+        save_fig: bool
+            If plot is supposed to be saved instead of showed
+        dpi: int
+            dpi of saved plot
+        fig_name: str
+            name of saved plot (with relative path)
+        """
+
         # Plotting trajectory of solar system barycentre (only needed x and y coordinates)
         solar_system_barycentre_pos_scalled_plane = (
             self._solar_system_barycentre_pos_scalled[:, 0:2]
