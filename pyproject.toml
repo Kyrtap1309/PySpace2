@@ -1,0 +1,46 @@
+[project]
+name = "PySpace2"
+version = "0.0.1"
+description = "Python package for astronomical calculations"
+readme = "README.md"
+authors = [
+    {name = "Patryk Niczke", email = "kyrtap1301@gmail.com"}
+]
+
+requires-python = ">=3.9"
+dynamic = ["dependencies"]
+
+
+[build_system]
+requires = ["setuptools==69.5.1"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements/base.txt"]}
+
+[tool.isort]
+profile = "black"
+split_on_trailing_coma = true
+
+[tool.ruff]
+exclude = [".tox"]
+lint.ignore = []
+line-length = 100
+lint.select = [
+    "C", # McCabe complexity
+    "E", # pycodestyle
+    "F", # Pyflakes
+    "W", # warnings
+    "T20", #flake8-print
+]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 6
+
+[tool.coverage.run]
+omit = [
+    ".tox/*",
+    "test/*"
+]
+source = ["PySpace2"]
+

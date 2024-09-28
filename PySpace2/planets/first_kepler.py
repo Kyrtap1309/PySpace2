@@ -1,7 +1,6 @@
 import datetime
 import numpy as np
 import spiceypy
-import matplotlib
 from matplotlib import pyplot as plt
 
 from ..utilities.utilities import kernels_load
@@ -114,7 +113,7 @@ class FirstKepler:
         dpi: str = 500,
         fig_name: str = "./plots/barycentre_trajectory.png",
     ) -> None:
-        
+
         """
         Plot the trajectory of solar system barycentre with relation to the Sun
 
