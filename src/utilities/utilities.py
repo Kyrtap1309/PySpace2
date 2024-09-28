@@ -1,6 +1,7 @@
 import os
 import inspect
 
+
 def get_furnsh_kernel_path(kernel_path):
     """
     Function to obtain the full path to a kernel file based on the project's location.
