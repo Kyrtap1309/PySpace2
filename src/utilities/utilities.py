@@ -30,3 +30,5 @@ def kernels_load(kernels_path: str) -> None:
 
     for kernel_path in kernels_path:
         spiceypy.furnsh(get_furnsh_kernel_path(kernel_path))
+
+
