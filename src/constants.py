@@ -2,8 +2,9 @@
 import datetime
 import spiceypy
 
+from utilities import get_furnsh_kernel_path
 
-spiceypy.furnsh('kernels/lsk/naif0012.tls')
+spiceypy.furnsh(get_furnsh_kernel_path('../kernels/lsk/naif0012.tls'))
 
 #Today date (at midnight) in Year - month - dayT00:00:00 format
 TODAY_DATE = datetime.datetime.today().strftime('%Y-%m-%dT00:00:00')
