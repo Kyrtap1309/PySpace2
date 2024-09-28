@@ -1,13 +1,17 @@
 import spiceypy
 import math
-from ..utilities.utilities import get_furnsh_kernel_path
+from ..utilities.utilities import kernels_load
 from ..utilities.constants import AU_TO_KM, ET_TODAY_DATE_MIDNIGHT
 
 
 class Earth:
     def __init__(self):
 
-        spiceypy.furnsh(get_furnsh_kernel_path("../../kernels/spk/de432s.bsp"))
+
+        kernels = ["../../kernels/spk/de432s.bsp", 
+                   "../../kernels/pck/gm_de431.tpc"]
+        
+        kernels_load(kernels)
 
         # Calculating an earth state vector and time of light's travel between
         # the earth and the sun
@@ -38,8 +42,6 @@ class Earth:
         )
 
         # Calculate theorical orbital speed of the Earth around the Sun (km/s)
-        spiceypy.furnsh(get_furnsh_kernel_path("../../kernels/pck/gm_de431.tpc"))
-
         _, gm_sun = spiceypy.bodvcd(bodyid=10, item="GM", maxn=1)  # GM parameter
         self.earth_sun_speed_theory = math.sqrt(gm_sun[0] / self.earth_sun_distace)
 
