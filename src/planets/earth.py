@@ -5,7 +5,7 @@ from ..utilities.constants import AU_TO_KM, ET_TODAY_DATE_MIDNIGHT, NAIF_PLANETS
 
 
 class Earth:
-    def __init__(self):
+    def __init__(self) -> None:
 
         kernels = ["../../kernels/spk/de432s.bsp", "../../kernels/pck/gm_de431.tpc"]
 
@@ -52,11 +52,11 @@ class Earth:
         )  # GM parameter
         self.earth_sun_speed_theory = math.sqrt(gm_sun[0] / self.earth_sun_distace)
 
-    def __str__(self):
+    def __str__(self) -> str:
         info = f"""\n\tEarth location in relation to Sun for {ET_TODAY_DATE_MIDNIGHT}: {self.earth_state_vector} km\n
-        Earth distance from Sum equals for {ET_TODAY_DATE_MIDNIGHT}: {self.au_earth_sun_distance} AU\n
-        The Earth orbital speed around the Sun equals for: {self.earth_sun_speed}" km/s\n
-        The theoretical Earth orbital speed around the Sun equals for: {self.earth_sun_speed_theory} km/s)\n"""
+        Earth distance from Sun equals for {ET_TODAY_DATE_MIDNIGHT}: {round(self.au_earth_sun_distance, 6)} AU\n
+        The Earth orbital speed around the Sun equals for: {round(self.earth_sun_speed, 3)}" km/s\n
+        The theoretical Earth orbital speed around the Sun equals for: {round(self.earth_sun_speed_theory, 3)} km/s)\n"""
         return info
 
 

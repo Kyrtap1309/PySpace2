@@ -3,7 +3,7 @@ import inspect
 import spiceypy
 
 
-def get_furnsh_kernel_path(kernel_path):
+def get_furnsh_kernel_path(kernel_path: str) -> str:
     """
     Function to obtain the full path to a kernel file based on the project's location.
 
@@ -20,7 +20,7 @@ def get_furnsh_kernel_path(kernel_path):
     return furnsh_kernel_path
 
 
-def kernels_load(kernels_path):
+def kernels_load(kernels_path: str) -> None:
     """
     Function to load many kernels at once.
 
