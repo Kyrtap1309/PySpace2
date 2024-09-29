@@ -19,7 +19,7 @@ def get_furnsh_kernel_path(kernel_path: str) -> str:
     caller_file = caller_frame.filename
     dir = os.path.dirname(os.path.abspath(caller_file))
     furnsh_kernel_path = os.path.join(dir, kernel_path)
-    
+
     current_os = platform.system()
 
     if current_os == "Windows":
@@ -55,11 +55,29 @@ def create_folder_if_not_exists(folder_path: str) -> None:
     if not folder.exists():
         folder.mkdir(parents=True)
 
-def show_or_save_fig(dir, fig_name, save_fig, dpi):
+
+def show_or_save_fig(
+    dir: str = "./plots",
+    fig_name: str = "plot.png",
+    save_fig: bool = True,
+    dpi: int = 400,
+):
+    """
+    Function to handle saving or showing generated plot
+
+    Args:
+        dir (str): The relative path (relative to cwd) of figure (if saved)
+        fig_name (str): Name of plot file
+        save_fig (bool): If True, save plot as picture, else show as interactive
+        dpi (int): dpi of plot picture
+
+    """
+
     from matplotlib import pyplot as plt
+
     if save_fig:
-            create_folder_if_not_exists(dir)
-            plt.savefig(os.path.join(dir, fig_name), dpi=dpi)
+        create_folder_if_not_exists(dir)
+        plt.savefig(os.path.join(dir, fig_name), dpi=dpi)
     else:
         try:
             plt.show()
@@ -69,3 +87,15 @@ def show_or_save_fig(dir, fig_name, save_fig, dpi):
             )
             create_folder_if_not_exists(dir)
             plt.savefig(os.path.join(dir, fig_name), dpi=dpi)
+
+
+def prepare_dict(original_dict: dict, keys_list: list):
+    """
+    Create a needed sample of dict
+
+    Args:
+        original_dict(dict):
+        keys_of_list(list):
+    """
+
+    return {key: original_dict[key] for key in keys_list if key in original_dict}
