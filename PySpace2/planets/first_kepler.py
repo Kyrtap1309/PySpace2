@@ -5,7 +5,11 @@ import spiceypy
 from matplotlib import pyplot as plt
 
 
-from ..utilities.utilities import kernels_load, create_folder_if_not_exists, show_or_save_fig
+from ..utilities.utilities import (
+    kernels_load,
+    create_folder_if_not_exists,
+    show_or_save_fig,
+)
 from ..utilities.constants import NAIF_PLANETS_ID
 
 
@@ -62,7 +66,9 @@ class FirstKepler:
             self._solar_system_barycentre_pos.append(_position)
 
         # convert to numpy array
-        self._solar_system_barycentre_pos_array = np.array(self._solar_system_barycentre_pos)
+        self._solar_system_barycentre_pos_array = np.array(
+            self._solar_system_barycentre_pos
+        )
 
         # import sun radius
         _, sun_radius_arr = spiceypy.bodvcd(
@@ -114,9 +120,8 @@ class FirstKepler:
         save_fig: bool = True,
         dpi: str = 500,
         fig_name: str = "barycentre_trajectory.png",
-        dir: str = "./plots"
+        dir: str = "./plots",
     ) -> None:
-
         """
         Plot the trajectory of solar system barycentre with relation to the Sun
 

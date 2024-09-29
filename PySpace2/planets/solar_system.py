@@ -65,7 +65,6 @@ class SolarSystem(FirstKepler):
         fig_name: str = "solar_system_barycentrum_distance_plot.png",
         dir: str = "./plots",
     ) -> None:
-        
         """
         Plot solar system barycentre distance from sun with time
 

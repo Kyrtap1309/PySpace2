@@ -27,5 +27,5 @@ NAIF_PLANETS_ID = {
     "Saturn": 6,
     "Uran": 7,
     "Neptun": 8,
-    "SSB": 0 #Solar System Barycentre
+    "SSB": 0,  # Solar System Barycentre
 }
