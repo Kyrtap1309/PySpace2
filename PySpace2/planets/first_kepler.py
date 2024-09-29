@@ -9,6 +9,7 @@ from ..utilities.utilities import (
     kernels_load,
     create_folder_if_not_exists,
     show_or_save_fig,
+    get_utc_time
 )
 from ..utilities.constants import NAIF_PLANETS_ID
 
@@ -31,15 +32,7 @@ class FirstKepler:
         kernels = ["../../kernels/spk/de432s.bsp", "../../kernels/pck/pck00010.tpc"]
         kernels_load(kernels)
 
-        self.init_time = datetime.datetime(
-            year=date["year"],
-            month=date["month"],
-            day=date["day"],
-            hour=date["hour"],
-            minute=date["minute"],
-            second=date["second"],
-        )
-
+        self.init_time = get_utc_time(date)
         self.end_time = self.init_time + datetime.timedelta(days=delta_days)
 
         # Initialization of UTC time

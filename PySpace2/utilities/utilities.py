@@ -39,7 +39,7 @@ def kernels_load(kernels_path: str) -> None:
     try:
         for kernel_path in kernels_path:
             spiceypy.furnsh(get_furnsh_kernel_path(kernel_path))
-    except:
+    except Exception as e:
         print(f"Błąd podczas ładowania kerneli: {e}")
         raise
 
@@ -99,3 +99,17 @@ def prepare_dict(original_dict: dict, keys_list: list):
     """
 
     return {key: original_dict[key] for key in keys_list if key in original_dict}
+
+
+def get_utc_time(date_dict: dict):
+    import datetime
+    utc_date = datetime.datetime(
+            year=date_dict["year"],
+            month=date_dict["month"],
+            day=date_dict["day"],
+            hour=date_dict["hour"],
+            minute=date_dict["minute"],
+            second=date_dict["second"],
+        )
+    
+    return utc_date

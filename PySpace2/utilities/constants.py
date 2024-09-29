@@ -16,6 +16,9 @@ ET_TODAY_DATE_MIDNIGHT = spiceypy.utc2et(TODAY_DATE)
 # How many Kilometers in AU
 AU_TO_KM = 149_597_871
 
+#How many seconds in hour
+HOUR_TO_SECONDS = 3600
+
 
 NAIF_PLANETS_ID = {
     "Sun": 10,
