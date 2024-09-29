@@ -9,22 +9,24 @@ class Earth:
 
         kernels = ["../../kernels/spk/de432s.bsp", "../../kernels/pck/gm_de431.tpc"]
 
-        try:
-            kernels_load(kernels)
-        except Exception as e:
-            print(f"Błąd podczas ładowania kerneli: {e}")
-            raise
+        kernels_load(kernels)
+
+        self._earth_speed_calculations()
+
+    def _earth_speed_calculations(self) -> None:
+        """
+        Conduct calculations of Earth's real and thoerical speed
+        """
 
         # Calculating an earth state vector and time of light's travel between
         # the earth and the sun
         # Using spkgeo function with parametres:
-        # targ = 399 - NAIF ID of the planet (The Earth in this case) 
+        # targ = 399 - NAIF ID of the planet (The Earth in this case)
         # that state vector is pointing
         # et = et_todat - Reference time of calculations
         # ref = 'ECLIPJ2000' - An Ecliptic Plane used in calculations
-        # obs = 10 - NAIF ID of the object (The Sun in this case) 
+        # obs = 10 - NAIF ID of the object (The Sun in this case)
         # which is the beggining of state vector
-
         self.earth_state_vector, self.earth_sun_light_time = spiceypy.spkgeo(
             targ=NAIF_PLANETS_ID["Earth"],
             et=ET_TODAY_DATE_MIDNIGHT,

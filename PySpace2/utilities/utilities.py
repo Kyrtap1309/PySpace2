@@ -36,8 +36,12 @@ def kernels_load(kernels_path: str) -> None:
         kernels_path (list[str]): List of relative paths
     """
 
-    for kernel_path in kernels_path:
-        spiceypy.furnsh(get_furnsh_kernel_path(kernel_path))
+    try:
+        for kernel_path in kernels_path:
+            spiceypy.furnsh(get_furnsh_kernel_path(kernel_path))
+    except:
+        print(f"Błąd podczas ładowania kerneli: {e}")
+        raise
 
 
 def create_folder_if_not_exists(folder_path: str) -> None:
