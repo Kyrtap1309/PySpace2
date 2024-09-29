@@ -13,8 +13,22 @@ from ..utilities.constants import NAIF_PLANETS_ID, PLANETS_COLOR, PLANETS_SIZE
 
 
 class Map:
+    """Class represents planets coordinates at ecliptic coordinates and equatorial coordinates"""
 
-    def __init__(self, date: dict, chosen_planets: list) -> None:
+    def __init__(self, date: dict, chosen_planets: list[str]) -> None:
+        """
+        Initialize the class with date on which class calculates coordinate and with planets which coords will be calculated.
+
+        Parameters:
+        -----------
+        date : dict
+            Starting date for the computation (year, month, day, hour, minute, second).
+
+        chosen_planets : dict
+            Dict of planets to analyse with NAIF IDs as values
+
+        """
+
         kernels = ["../../kernels/spk/de432s.bsp", "../../kernels/lsk/naif0012.tls"]
         kernels_load(kernels)
 
@@ -24,6 +38,18 @@ class Map:
         self._init_ecliptic()
 
     def _init_map(self, date: dict, chosen_planets: list) -> None:
+        """
+        Initialize longtitudes and latitudes of chosen planets.
+
+        Parameters:
+        -----------
+        date : dict
+            Starting date for the computation (year, month, day, hour, minute, second).
+
+        chosen_planets : dict
+            Dict of planets to analyse with NAIF IDs as values
+
+        """
         # Initialization of UTC time
         self._utc_time_str = get_utc_time(date).strftime("%Y-%m-%dT%H:%M:%S")
         # Initialization of ET time
@@ -74,7 +100,12 @@ class Map:
                 )
             )
 
-    def _init_ecliptic(self):
+    def _init_ecliptic(self) -> None:
+        """
+        Calculate Ecliptic and Equator coordinates.
+
+        """
+
         # Creating a pandas dataframe to store calculations and parameters
         self._ecliptic_dataframe = pd.DataFrame()
 
@@ -123,6 +154,11 @@ class Map:
         fig_name: str = "space_map.png",
         dir: str = "./plots",
     ) -> None:
+        """
+        Plots the map of the Equatorial Coordinate System
+
+        """
+
         plt.style.use("dark_background")
 
         plt.figure(figsize=(12, 8))
