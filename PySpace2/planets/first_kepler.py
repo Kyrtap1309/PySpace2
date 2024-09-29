@@ -1,9 +1,11 @@
 import datetime
+import os
 import numpy as np
 import spiceypy
 from matplotlib import pyplot as plt
 
-from ..utilities.utilities import kernels_load
+
+from ..utilities.utilities import kernels_load, create_folder_if_not_exists
 from ..utilities.constants import NAIF_PLANETS_ID
 
 
@@ -111,7 +113,8 @@ class FirstKepler:
         self,
         save_fig: bool = True,
         dpi: str = 500,
-        fig_name: str = "./plots/barycentre_trajectory.png",
+        fig_name: str = "barycentre_trajectory.png",
+        dir: str = "./plots"
     ) -> None:
 
         """
@@ -124,7 +127,9 @@ class FirstKepler:
         dpi: int
             dpi of saved plot
         fig_name: str
-            name of saved plot (with relative path)
+            name of plot
+        dir: str
+            relative (to pwd) path of dir with plots
         """
 
         # Plotting trajectory of solar system barycentre (only needed x and y coordinates)
@@ -156,7 +161,8 @@ class FirstKepler:
         ax.set_ylabel("Y in Sun-Radius")
 
         if save_fig:
-            plt.savefig(fig_name, dpi=dpi)
+            create_folder_if_not_exists(dir)
+            plt.savefig(os.path.join(dir, fig_name), dpi=dpi)
         else:
             try:
                 plt.show()
@@ -164,7 +170,8 @@ class FirstKepler:
                 print(
                     f"Error during displaying trajectory: {e}, trajectory saved as {fig_name}"
                 )
-                plt.savefig(fig_name, dpi=dpi)
+                create_folder_if_not_exists(dir)
+                plt.savefig(os.path.join(dir, fig_name), dpi=dpi)
 
 
 if __name__ == "__main__":
