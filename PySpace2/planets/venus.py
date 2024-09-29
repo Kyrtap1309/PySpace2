@@ -90,6 +90,10 @@ class Venus:
         ]["UTCs"]:
             ax.axvline(photogenic_date, color="green", alpha=0.1)
 
+        #Add note about vertical lines meaning in legend
+        plt.plot([], [], ' ', label='Vertical lines -- photographable days')
+        plt.legend()
+
         plt.xticks(rotation=45)
         show_or_save_fig(dir=dir, fig_name=fig_name, save_fig=save_fig, dpi=dpi)
 
