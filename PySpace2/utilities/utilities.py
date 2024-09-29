@@ -5,30 +5,7 @@ import pathlib
 import platform
 
 
-def get_furnsh_kernel_path(kernel_path: str) -> str:
-    """
-    Function to obtain the full path to a kernel file based on the project's location.
-
-    Args:
-        kernel_path (str): The relative path.
-
-    Returns:
-        str: The full path to the kernel file.
-    """
-    caller_frame = inspect.stack()[1]
-    caller_file = caller_frame.filename
-    dir = os.path.dirname(os.path.abspath(caller_file))
-    furnsh_kernel_path = os.path.join(dir, kernel_path)
-
-    current_os = platform.system()
-
-    if current_os == "Windows":
-        furnsh_kernel_path = furnsh_kernel_path.replace("/", "\\")
-
-    return furnsh_kernel_path
-
-
-def kernels_load(kernels_path: str) -> None:
+def kernels_load(kernels_path: list[str]) -> None:
     """
     Function to load many kernels at once.
 
@@ -38,7 +15,7 @@ def kernels_load(kernels_path: str) -> None:
 
     try:
         for kernel_path in kernels_path:
-            spiceypy.furnsh(get_furnsh_kernel_path(kernel_path))
+            spiceypy.furnsh(_get_furnsh_kernel_path(kernel_path))
     except Exception as e:
         print(f"Błąd podczas ładowania kerneli: {e}")
         raise
@@ -114,3 +91,25 @@ def get_utc_time(date_dict: dict):
     )
 
     return utc_date
+
+def _get_furnsh_kernel_path(kernel_path: str) -> str:
+    """
+    Function to obtain the full path to a kernel file based on the project's location.
+
+    Args:
+        kernel_path (str): The relative path.
+
+    Returns:
+        str: The full path to the kernel file.
+    """
+    caller_frame = inspect.stack()[1]
+    caller_file = caller_frame.filename
+    dir = os.path.dirname(os.path.abspath(caller_file))
+    furnsh_kernel_path = os.path.join(dir, kernel_path)
+
+    current_os = platform.system()
+
+    if current_os == "Windows":
+        furnsh_kernel_path = furnsh_kernel_path.replace("/", "\\")
+
+    return furnsh_kernel_path

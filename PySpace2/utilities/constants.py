@@ -2,9 +2,9 @@
 import datetime
 import spiceypy
 
-from .utilities import get_furnsh_kernel_path
+from .utilities import kernels_load
 
-spiceypy.furnsh(get_furnsh_kernel_path("../../kernels/lsk/naif0012.tls"))
+kernels_load(["../../kernels/lsk/naif0012.tls"])
 
 # Today date (at midnight) in Year - month - dayT00:00:00 format
 TODAY_DATE = datetime.datetime.today().strftime("%Y-%m-%dT00:00:00")
@@ -31,4 +31,30 @@ NAIF_PLANETS_ID = {
     "Uran": 7,
     "Neptun": 8,
     "SSB": 0,  # Solar System Barycentre
+}
+
+PLANETS_COLOR = {
+    "Sun": "gold",
+    "Mercury": "maroon",
+    "Venus": "palegoldenrod",
+    "Earth": "mediumseagreen",
+    "Moon": "silver",
+    "Mars": "tomato",
+    "Jupiter": "burlywood",
+    "Saturn": "darkkhaki",
+    "Uran": "paleturquoise",
+    "Neptun": "blue",
+}
+
+PLANETS_SIZE = {
+    "Sun": 20,
+    "Mercury": 8,
+    "Venus": 11,
+    "Earth": 12,
+    "Moon": 6,
+    "Mars": 10,
+    "Jupiter": 15,
+    "Saturn": 17,
+    "Uran": 18,
+    "Neptun": 19,
 }
