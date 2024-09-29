@@ -103,13 +103,14 @@ def prepare_dict(original_dict: dict, keys_list: list):
 
 def get_utc_time(date_dict: dict):
     import datetime
+
     utc_date = datetime.datetime(
-            year=date_dict["year"],
-            month=date_dict["month"],
-            day=date_dict["day"],
-            hour=date_dict["hour"],
-            minute=date_dict["minute"],
-            second=date_dict["second"],
-        )
-    
+        year=date_dict["year"],
+        month=date_dict["month"],
+        day=date_dict["day"],
+        hour=date_dict["hour"],
+        minute=date_dict["minute"],
+        second=date_dict["second"],
+    )
+
     return utc_date
