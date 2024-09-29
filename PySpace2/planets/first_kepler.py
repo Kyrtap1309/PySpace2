@@ -47,22 +47,22 @@ class FirstKepler:
         end_et_time = spiceypy.utc2et(self.end_time_utc_str)
 
         # Create numpy array with one day interval between start and end day
-        time_array = np.linspace(init_et_time, end_et_time, delta_days)
+        self.time_array = np.linspace(init_et_time, end_et_time, delta_days)
 
         # Array with all positions of solar system barycentre
-        solar_system_barycentre_pos = []
+        self._solar_system_barycentre_pos = []
 
-        for time in time_array:
+        for time in self.time_array:
             _position, _ = spiceypy.spkgps(
                 targ=NAIF_PLANETS_ID["SSB"],
                 et=time,
                 ref="ECLIPJ2000",
                 obs=NAIF_PLANETS_ID["Sun"],
             )
-            solar_system_barycentre_pos.append(_position)
+            self.solar_system_barycentre_pos.append(_position)
 
         # convert to numpy array
-        self._solar_system_barycentre_pos_array = np.array(solar_system_barycentre_pos)
+        self._solar_system_barycentre_pos_array = np.array(self.solar_system_barycentre_pos)
 
         # import sun radius
         _, sun_radius_arr = spiceypy.bodvcd(
