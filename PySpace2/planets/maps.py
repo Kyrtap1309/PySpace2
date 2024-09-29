@@ -72,7 +72,7 @@ class Map:
                 lambda x: spiceypy.spkezp(
                     targ=NAIF_PLANETS_ID[planet_name],
                     et=x,
-                    ref="ECLIPJ2000",
+                    ref="J2000",
                     abcorr="LT+S",
                     obs=399,
                 )[0]
@@ -170,7 +170,7 @@ class Map:
         for planet_name in self.chosen_planets:
             plt.plot(
                 self._map_dataframe[f"{planet_name}_longtitude_plt"],
-                self._map_dataframe[f"{planet_name}_longtitude"],
+                self._map_dataframe[f"{planet_name}_latitude"],
                 color=PLANETS_COLOR[planet_name],
                 marker="o",
                 markersize=PLANETS_SIZE[planet_name],
@@ -199,7 +199,7 @@ class Map:
 
 
 if __name__ == "__main__":
-    chosen_planets = ["Mars", "Jupiter", "Saturn", "Uran"]
-    date = {"year": 2001, "month": 9, "day": 13, "hour": 5, "minute": 0, "second": 0}
+    chosen_planets = ["Sun", "Venus", "Moon", "Mars"]
+    date = {"year": 2020, "month": 5, "day": 5, "hour": 17, "minute": 14, "second": 0}
     map = Map(date=date, chosen_planets=chosen_planets)
     map.plot_map()
