@@ -50,3 +50,18 @@ def create_folder_if_not_exists(folder_path: str) -> None:
     folder = pathlib.Path(folder_path)
     if not folder.exists():
         folder.mkdir(parents=True)
+
+def show_or_save_fig(dir, fig_name, save_fig, dpi):
+    from matplotlib import pyplot as plt
+    if save_fig:
+            create_folder_if_not_exists(dir)
+            plt.savefig(os.path.join(dir, fig_name), dpi=dpi)
+    else:
+        try:
+            plt.show()
+        except Exception as e:
+            print(
+                f"Error during displaying trajectory: {e}, trajectory saved as {fig_name}"
+            )
+            create_folder_if_not_exists(dir)
+            plt.savefig(os.path.join(dir, fig_name), dpi=dpi)

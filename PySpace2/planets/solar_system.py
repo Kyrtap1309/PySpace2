@@ -2,7 +2,10 @@ import pandas as pd
 import numpy as np
 import spiceypy
 
+from matplotlib import pyplot as plt
+
 from .first_kepler import FirstKepler
+from ..utilities.utilities import show_or_save_fig
 
 
 class SolarSystem(FirstKepler):
@@ -54,3 +57,57 @@ class SolarSystem(FirstKepler):
                 lambda x: np.linalg.norm(x)
             )
         )
+
+    def plot(
+        self,
+        save_fig: bool = True,
+        dpi: str = 500,
+        fig_name: str = "solar_system_barycentrum_distance_plot.png",
+        dir: str = "./plots",
+    ) -> None:
+        
+        """
+        Plot solar system barycentre distance from sun with time
+
+        Parameters:
+        -----------
+        save_fig: bool
+            If plot is supposed to be saved instead of showed
+        dpi: int
+            dpi of saved plot
+        fig_name: str
+            name of plot
+        dir: str
+            relative (to pwd) path of dir with plots
+        """
+
+        fig, ax = plt.subplots(figsize=(12, 8))
+        ax.plot(
+            self._solar_system_data_frame["UTC"],
+            self._solar_system_data_frame["Barycentre_distance"],
+            color="tab:blue",
+        )
+
+        ax.set_xlabel("UTC Date")
+        ax.set_ylabel(
+            "Solar System Barycentre Distance from Sun [Sun Radii]", color="tab:blue"
+        )
+        ax.tick_params(axis="y", labelcolor="tab:blue")
+
+        ax.set_xlim(
+            min(self._solar_system_data_frame["UTC"]),
+            max(
+                self._solar_system_data_frame["UTC"],
+            ),
+        )
+        ax.set_ylim(0, 2)
+
+        ax.grid(axis="x", linestyle="dashed", alpha=0.5)
+
+        show_or_save_fig(dir=dir, fig_name=fig_name, save_fig=save_fig, dpi=dpi)
+
+
+if __name__ == "__main__":
+    date = {"year": 2001, "month": 9, "day": 13, "hour": 5, "minute": 0, "second": 0}
+    solar_system = SolarSystem(delta_days=5000, date=date)
+    solar_system.plot()
