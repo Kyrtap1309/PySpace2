@@ -5,7 +5,7 @@ import spiceypy
 from matplotlib import pyplot as plt
 
 
-from ..utilities.utilities import kernels_load, create_folder_if_not_exists
+from ..utilities.utilities import kernels_load, create_folder_if_not_exists, show_or_save_fig
 from ..utilities.constants import NAIF_PLANETS_ID
 
 
@@ -47,22 +47,22 @@ class FirstKepler:
         end_et_time = spiceypy.utc2et(self.end_time_utc_str)
 
         # Create numpy array with one day interval between start and end day
-        time_array = np.linspace(init_et_time, end_et_time, delta_days)
+        self.time_array = np.linspace(init_et_time, end_et_time, delta_days)
 
         # Array with all positions of solar system barycentre
-        solar_system_barycentre_pos = []
+        self._solar_system_barycentre_pos = []
 
-        for time in time_array:
+        for time in self.time_array:
             _position, _ = spiceypy.spkgps(
                 targ=NAIF_PLANETS_ID["SSB"],
                 et=time,
                 ref="ECLIPJ2000",
                 obs=NAIF_PLANETS_ID["Sun"],
             )
-            solar_system_barycentre_pos.append(_position)
+            self._solar_system_barycentre_pos.append(_position)
 
         # convert to numpy array
-        self._solar_system_barycentre_pos_array = np.array(solar_system_barycentre_pos)
+        self._solar_system_barycentre_pos_array = np.array(self._solar_system_barycentre_pos)
 
         # import sun radius
         _, sun_radius_arr = spiceypy.bodvcd(
@@ -160,18 +160,7 @@ class FirstKepler:
         ax.set_xlabel("X in Sun-Radius")
         ax.set_ylabel("Y in Sun-Radius")
 
-        if save_fig:
-            create_folder_if_not_exists(dir)
-            plt.savefig(os.path.join(dir, fig_name), dpi=dpi)
-        else:
-            try:
-                plt.show()
-            except Exception as e:
-                print(
-                    f"Error during displaying trajectory: {e}, trajectory saved as {fig_name}"
-                )
-                create_folder_if_not_exists(dir)
-                plt.savefig(os.path.join(dir, fig_name), dpi=dpi)
+        show_or_save_fig(dir=dir, fig_name=fig_name, save_fig=save_fig, dpi=dpi)
 
 
 if __name__ == "__main__":
