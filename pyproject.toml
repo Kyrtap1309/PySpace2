@@ -1,6 +1,6 @@
 [project]
 name = "PySpace2"
-version = "0.0.1"
+version = "0.1.0"
 description = "Python package for astronomical calculations"
 readme = "README.md"
 authors = [
@@ -14,6 +14,9 @@ dynamic = ["dependencies"]
 [build-system]
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
 
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements/base.txt"]}
