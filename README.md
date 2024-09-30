@@ -32,3 +32,6 @@ git clone git@github.com:your-account/pyspace2.git
 cd pyspace2
 pip install .
 ```
+
+## Example
+Check package usage example [here](example)
