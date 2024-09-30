@@ -29,7 +29,7 @@ class FirstKepler:
         """
 
         # spicepy needs a kernels loaded to work properly
-        kernels = ["../../kernels/spk/de432s.bsp", "../../kernels/pck/pck00010.tpc"]
+        kernels = ["../kernels/spk/de432s.bsp", "../kernels/pck/pck00010.tpc"]
         kernels_load(kernels)
 
         self.init_time = get_utc_time(date)

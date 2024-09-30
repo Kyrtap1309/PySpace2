@@ -4,7 +4,7 @@ import spiceypy
 
 from .utilities import kernels_load
 
-kernels_load(["../../kernels/lsk/naif0012.tls"])
+kernels_load(["../kernels/lsk/naif0012.tls"])
 
 # Today date (at midnight) in Year - month - dayT00:00:00 format
 TODAY_DATE = datetime.datetime.today().strftime("%Y-%m-%dT00:00:00")
