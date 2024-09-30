@@ -7,7 +7,7 @@ from ..utilities.constants import AU_TO_KM, ET_TODAY_DATE_MIDNIGHT, NAIF_PLANETS
 class Earth:
     def __init__(self) -> None:
 
-        kernels = ["../../kernels/spk/de432s.bsp", "../../kernels/pck/gm_de431.tpc"]
+        kernels = ["../kernels/spk/de432s.bsp", "../kernels/pck/gm_de431.tpc"]
 
         kernels_load(kernels)
 

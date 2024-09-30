@@ -29,7 +29,7 @@ class Map:
 
         """
 
-        kernels = ["../../kernels/spk/de432s.bsp", "../../kernels/lsk/naif0012.tls"]
+        kernels = ["../kernels/spk/de432s.bsp", "../kernels/lsk/naif0012.tls"]
         kernels_load(kernels)
 
         self.chosen_planets = chosen_planets

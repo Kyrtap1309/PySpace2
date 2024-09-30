@@ -13,9 +13,9 @@ class Venus:
 
         # spicepy needs a kernels loaded to work properly
         kernels = [
-            "../../kernels/spk/de432s.bsp",
-            "../../kernels/lsk/naif0012.tls",
-            "../../kernels/pck/pck00010.tpc",
+            "../kernels/spk/de432s.bsp",
+            "../kernels/lsk/naif0012.tls",
+            "../kernels/pck/pck00010.tpc",
         ]
         kernels_load(kernels)
 
