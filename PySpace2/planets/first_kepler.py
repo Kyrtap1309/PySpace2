@@ -74,20 +74,20 @@ class FirstKepler:
             self._solar_system_barycentre_pos_array / self._sun_radius
         )
 
-        @property
-        def solar_system_barycentre_pos_array(self):
-            """Get the positions of the solar system barycenter as a numpy array."""
-            return self._solar_system_barycentre_pos_array
+    @property
+    def solar_system_barycentre_pos_array(self):
+        """Get the positions of the solar system barycenter as a numpy array."""
+        return self._solar_system_barycentre_pos_array
 
-        @property
-        def solar_system_barycentre_pos_scalled(self):
-            """Get the scaled positions of the solar system barycenter in Sun radii."""
-            return self._solar_system_barycentre_pos_scalled
+    @property
+    def solar_system_barycentre_pos_scalled(self):
+        """Get the scaled positions of the solar system barycenter in Sun radii."""
+        return self._solar_system_barycentre_pos_scalled
 
-        @property
-        def sun_radius(self):
-            """Get the radius of the Sun."""
-            return self._sun_radius
+    @property
+    def sun_radius(self):
+        """Get the radius of the Sun."""
+        return self._sun_radius
 
     def __str__(self) -> str:
 
