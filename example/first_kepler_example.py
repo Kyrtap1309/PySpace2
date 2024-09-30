@@ -18,3 +18,7 @@ print(first_kepler)
 
 #Get array with Solar System Barycentre data
 ssb_data_array = first_kepler.solar_system_barycentre_pos_array
+
+#Show SSB trajectory, trajectory docstring show exactly 
+#how to manipulate display format and location of saved trajectory
+first_kepler.trajectory()
