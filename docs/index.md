@@ -1,17 +1,17 @@
-# Welcome to MkDocs
+# Pyspace 2 introduction
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Description
 
-## Commands
+**PySpace2** is a Python library that allows for advanced astronomical calculations, simulations, and data analysis related to outer space. The project aims to simplify operations on celestial bodies, their movements, and the dynamics of planetary systems.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## Features
 
-## Project layout
+- Calculating the real and theorical Earth speed
+- Plotting the Solar System Barycentre with relation to Sun
+- Analyze when you can take photo of Venus
+- Create Planets' map with Equator Coordinates System 
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## System Requirements
+
+- Python 3.9+
+- Supported operating systems: Windows, macOS, Linux
