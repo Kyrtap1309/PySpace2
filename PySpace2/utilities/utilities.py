@@ -3,6 +3,7 @@ import inspect
 import spiceypy
 import pathlib
 import platform
+import requests
 
 from functools import wraps
 from .constants import KERNELS_URLS
