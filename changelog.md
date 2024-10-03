@@ -1,7 +1,7 @@
 # Changelog
 
-## [0.1.4] - 03.10.2024
-- Version published for github workflows purpose
+## [0.1.4], [0.1.5] - 03.10.2024
+- Versions published for github workflows purpose
 
 ## [0.1.3] - 03.10.2024
 ### Added
