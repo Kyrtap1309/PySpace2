@@ -4,6 +4,7 @@ import spiceypy
 import pathlib
 import platform
 
+from functools import wraps
 
 def kernels_load(kernels_path: list[str]) -> None:
     """
@@ -113,3 +114,23 @@ def _get_furnsh_kernel_path(kernel_path: str) -> str:
         furnsh_kernel_path = furnsh_kernel_path.replace("/", "\\")
 
     return furnsh_kernel_path
+
+from functools import wraps
+
+def check_required_var(var_name):
+    def decorator(method):
+        @wraps(method)
+        def wrapper(*args, **kwargs):
+            # Wywołanie metody i uzyskanie lokalnych zmiennych
+            frame = inspect.currentframe()
+            try:
+                result = method(*args, **kwargs)
+                # Pobieranie lokalnych zmiennych z metody statycznej
+                local_vars = frame.f_back.f_locals
+                if var_name not in local_vars:
+                    raise NameError(f"Static method '{method.__name__}' is missing required variable '{var_name}'")
+                return result
+            finally:
+                del frame  # Czyszczenie ramki, aby uniknąć wycieków pamięci
+        return wrapper
+    return decorator
