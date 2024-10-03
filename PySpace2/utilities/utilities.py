@@ -6,7 +6,6 @@ import platform
 import requests
 
 from functools import wraps
-from .constants import KERNELS_URLS
 
 def kernels_load(kernels_path: list[str]) -> None:
     """
@@ -34,6 +33,7 @@ def create_folder_if_not_exists(folder_path: str) -> None:
     folder = pathlib.Path(folder_path)
     if not folder.exists():
         folder.mkdir(parents=True)
+
 
 
 def show_or_save_fig(
