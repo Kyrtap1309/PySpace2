@@ -5,6 +5,7 @@ import pathlib
 import platform
 
 from functools import wraps
+from .constants import KERNELS_URLS
 
 def kernels_load(kernels_path: list[str]) -> None:
     """
