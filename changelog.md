@@ -1,6 +1,14 @@
 # Changelog
 
+## [0.1.4] - 03.10.2024
+- Version published for github workflows purpose
+
 ## [0.1.3] - 03.10.2024
+### Added
+- Add download kernels functionality
+
+
+## [0.1.2] - 03.10.2024
 ### Added
 - Improve package API without changes for user
 
