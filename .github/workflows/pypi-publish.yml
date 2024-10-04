@@ -3,7 +3,7 @@ name: Publish to PyPI
 on:
   push:
     branches:
-      - main  # lub inna gałąź, na którą chcesz publikować
+      - main  
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'  # lub inna wersja Pythona
+          python-version: '3.8'  
 
       - name: Install dependencies
         run: |
@@ -45,4 +45,4 @@ jobs:
           git tag v${{ env.VERSION }}
           git push origin v${{ env.VERSION }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token do autoryzacji
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
