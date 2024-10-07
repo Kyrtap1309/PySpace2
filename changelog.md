@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.9] - 07.10.2024
+### Added
+- Now interface gives hints to user to download missing kernels in `SPICENOSUCHFILE` Error
+
 ## [0.1.4] - [0.1.8] - 03.10.2024
 - Versions published for github workflows purpose
 
