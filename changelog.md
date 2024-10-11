@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.10] - 11.10.2024
+### Added
+- Add dependencies versioning
+
 ## [0.1.9] - 07.10.2024
 ### Added
 - Now interface gives hints to user to download missing kernels in `SPICENOSUCHFILE` Error
