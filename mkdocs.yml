@@ -1,0 +1,15 @@
+site_name: PySpace2
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Examples: 
+    - examples/earth_example.py
+    - examples/first_kepler_example.py
+    - examples/maps_example.py
+    - examples/phase_angel_example.py
+theme:
+  name: material
+plugins:
+  - search
+  - mkdocs-jupyter
+  - awesome-pages

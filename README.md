@@ -35,3 +35,33 @@ pip install .
 
 ## Example
 Check package usage example [here](example)
+
+## Documentation Website
+PySpace2 uses MkDocs to generate documentation. If you want to generate it locally, follow these steps:
+
+1. Move to the root directory of the PySpace2 project where the **requirements** folder is located: 
+
+2. Install MkDocs and required plugins
+
+```bash
+pip install -r requirements/docs.txt
+```
+
+3. Serve the documentation locally
+
+    
+
+```bash
+mkdocs serve
+```
+This will start a local server, and the documentation can be viewed in your browser at http://127.0.0.1:8000.
+
+4. Build the documentation (optional)
+
+If you want to generate a static HTML version of the documentation, you can run:
+
+```bash
+mkdocs build
+```
+
+This will create a **site/** directory with all the HTML files needed to host the documentation.
