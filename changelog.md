@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.1.11] - 30.10.2024
+- Add documentation site with **MkDocs**
+
 ## [0.1.10] - 11.10.2024
 ### Added
 - Add dependencies versioning
