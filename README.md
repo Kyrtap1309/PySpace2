@@ -65,3 +65,14 @@ mkdocs build
 ```
 
 This will create a **site/** directory with all the HTML files needed to host the documentation.
+
+## Gallery
+
+### Example: Solar System Barycentre trajectory with First Kepler functionality
+![First Kepler](docs/static/img/barycentre_trajectory.png)
+
+### Example: Plot a graph of phase angle of planets based on time
+![Phase Angle](docs/static/img/phase_angle_plot.png)
+
+### Example: Planets' Map at Equatorial Coordinate System
+![Map](docs/static/img/space_map.png)
