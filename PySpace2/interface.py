@@ -1,17 +1,22 @@
+import os
+
 import spiceypy
 from spiceypy.utils.exceptions import SpiceNOSUCHFILE
 
+from .utilities.kernels_utilities import download_file
+from .utilities.kernels_constants import KERNELS_URLS
+
 REQUIRED_FILES = {
-    "earth": ["kernels/spk/de432s.bsp", "kernels/pck/gm_de431.tpc"],
-    "first_kepler": ["kernels/spk/de432s.bsp", "kernels/pck/pck00010.tpc"],
-    "solar_system": ["kernels/spk/de432s.bsp", "kernels/pck/pck00010.tpc"],
-    "phase_angel": ["kernels/spk/de432s.bsp", "kernels/pck/pck00010.tpc"],
+    "earth": ["spk/de432s.bsp", "pck/gm_de431.tpc"],
+    "first_kepler": ["spk/de432s.bsp", "pck/pck00010.tpc"],
+    "solar_system": ["spk/de432s.bsp", "pck/pck00010.tpc"],
+    "phase_angel": ["spk/de432s.bsp", "pck/pck00010.tpc"],
     "venus": [
-        "kernels/spk/de432s.bsp",
-        "kernels/lsk/naif0012.tls",
-        "kernels/pck/pck00010.tpc",
+        "spk/de432s.bsp",
+        "lsk/naif0012.tls",
+        "pck/pck00010.tpc",
     ],
-    "map": ["kernels/spk/de432s.bsp", "kernels/lsk/naif0012.tls"],
+    "map": ["spk/de432s.bsp", "lsk/naif0012.tls"],
 }
 
 
@@ -24,6 +29,13 @@ class PySpace2:
         print(
             f"Please download the following required files: {', '.join(required_files)}"
         )
+
+    def download_kernels(self, method_name):
+        for file in REQUIRED_FILES[method_name]:
+            naif_relative_path = KERNELS_URLS[file]
+            local_relative_path = "../kernels/" + os.path.dirname(file)
+            download_file(naif_relative_path, local_relative_path)
+            
 
     @staticmethod
     def earth():

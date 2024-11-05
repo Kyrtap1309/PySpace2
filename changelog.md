@@ -1,6 +1,11 @@
 # Changelog
 
+## [0.2.1] - 05.11.2024
+### Added
+- User now can download kernels in case of some missing
+
 ## [0.1.11] - 30.10.2024
+### Added
 - Add documentation site with **MkDocs**
 
 ## [0.1.10] - 11.10.2024
