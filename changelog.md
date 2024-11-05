@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.2.2] - 05.11.2024
+### Added
+- Add gallery to README
+
 ## [0.2.1] - 05.11.2024
 ### Added
 - User now can download kernels in case of some missing

@@ -14,7 +14,7 @@ date = {"year": 2001, "month": 9, "day": 13, "hour": 5, "minute": 0, "second": 0
 chosen_planets = ["Sun", "Venus", "Moon", "Mars"]
 
 #Create phase_angel object
-phase_angle = PySpace2.phase_angel()
+phase_angle = PySpace2.phase_angel(delta_days, date, chosen_planets)
 
 #Show plot, plot() docstring show exactly 
 #how to manipulate display format and location of saved map
