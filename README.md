@@ -33,8 +33,8 @@ cd pyspace2
 pip install .
 ```
 
-## Example
-Check package usage example [here](example)
+## Examples
+Check package usage examples [here](docs/examples)
 
 ## Documentation Website
 PySpace2 uses MkDocs to generate documentation. If you want to generate it locally, follow these steps:
