@@ -8,6 +8,15 @@ from ..utilities.kernels_constants import REQUIRED_FILES
 
 class Ceres:
     def __init__(self, date: dict) -> None:
+        """
+        Initialize the class with date to calculate orbit properties.
+
+        Parameters:
+        -----------
+        date : dict
+            Starting date for the computation (year, month, day, hour, minute, second).
+        """
+
         self._kernels_load()
         self._ceres_init(date)
 
@@ -19,6 +28,15 @@ class Ceres:
         kernels_load(kernels)
 
     def _ceres_init(self, date: dict) -> None:
+        """
+        Initialize the Ceres object with the provided date.
+
+        Parameters:
+        -----------
+        date : dict
+            Starting date for the computation (year, month, day, hour, minute, second).
+        """
+
         # Initialization of UTC time
         self._utc_time_str = get_utc_time(date).strftime("%Y-%m-%dT%H:%M:%S")
         # Initialization of ET time
@@ -59,4 +77,30 @@ class Ceres:
 
         # Ceres orbital period
         self.ceres_orbital_period_years = _ceres_planet_elements[10] / (86400 * 365)
+    
+    def _orbit_params(self) -> dict:
+        """
+        Create a dictionary with Ceres orbit parameters
+
+        Returns:
+        --------
+        dict
+            Dictionary containing the following Ceres orbit parameters:
+            - semi_major_au: Semi-major axis in astronomical units (AU).
+            - perihelion_au: Perihelion distance in astronomical units (AU).
+            - ecentricity: Orbital eccentricity.
+            - inclination_deg: Orbital inclination in degrees.
+            - longitude_asc_node_deg: Longitude of the ascending node in degrees.
+            - arg_perihelion_deg: Argument of perihelion in degrees.
+            - orbital_period_years: Orbital period in years.
+        """
+        return {
+            "semi_major_au": self.ceres_semi_major_au,
+            "perihelion_au": self.ceres_perihelion_au,
+            "ecentricity": self.ceres_ecentricity,
+            "inclination_deg": self.ceres_inclination_deg,
+            "longitude_ascendation_node_deg": self.ceres_longitude_asc_node_deg,
+            "argument_perihelion_deg": self.ceres_arg_perihelion_deg,
+            "orbital_period_years": self.ceres_orbital_period_years,
+        }
         
