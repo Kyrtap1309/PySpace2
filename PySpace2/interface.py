@@ -5,20 +5,7 @@ from spiceypy.utils.exceptions import SpiceNOSUCHFILE
 
 from .utilities.kernels_utilities import download_file
 from .utilities.kernels_constants import KERNELS_URLS
-
-REQUIRED_FILES = {
-    "earth": ["spk/de432s.bsp", "pck/gm_de431.tpc"],
-    "first_kepler": ["spk/de432s.bsp", "pck/pck00010.tpc"],
-    "solar_system": ["spk/de432s.bsp", "pck/pck00010.tpc"],
-    "phase_angel": ["spk/de432s.bsp", "pck/pck00010.tpc"],
-    "venus": [
-        "spk/de432s.bsp",
-        "lsk/naif0012.tls",
-        "pck/pck00010.tpc",
-    ],
-    "map": ["spk/de432s.bsp", "lsk/naif0012.tls"],
-}
-
+from .utilities.kernels_constants import REQUIRED_FILES
 
 class PySpace2:
 
