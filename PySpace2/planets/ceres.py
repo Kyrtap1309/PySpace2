@@ -5,7 +5,6 @@ from ..utilities.utilities import get_utc_time, kernels_load
 from ..utilities.kernels_constants import REQUIRED_FILES
 
 
-
 class Ceres:
     def __init__(self, date: dict) -> None:
         """
@@ -77,7 +76,7 @@ class Ceres:
 
         # Ceres orbital period
         self.ceres_orbital_period_years = _ceres_planet_elements[10] / (86400 * 365)
-    
+
     def _orbit_params(self) -> dict:
         """
         Create a dictionary with Ceres orbit parameters
@@ -103,4 +102,3 @@ class Ceres:
             "argument_perihelion_deg": self.ceres_arg_perihelion_deg,
             "orbital_period_years": self.ceres_orbital_period_years,
         }
-        
