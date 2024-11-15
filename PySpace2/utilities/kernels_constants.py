@@ -19,5 +19,11 @@ REQUIRED_FILES = {
         "pck/pck00010.tpc",
     ],
     "map": ["spk/de432s.bsp", "lsk/naif0012.tls"],
-    "orbit" : ["general/codes_300ast_20100725.bsp", "general/codes_300ast_20100725.tf"]
+    "orbit": [
+        "spk/de432s.bsp",
+        "lsk/naif0012.tls",
+        "pck/gm_de431.tpc",
+        "general/codes_300ast_20100725.bsp",
+        "general/codes_300ast_20100725.tf",
+    ],
 }
