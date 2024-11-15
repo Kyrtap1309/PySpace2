@@ -26,7 +26,7 @@ class Orbit:
         """
         Function to load kernels
         """
-        kernels = REQUIRED_FILES[self.__class__.__name__.lower()]
+        kernels = ["../kernels/" + kernel for kernel in REQUIRED_FILES[self.__class__.__name__.lower()]]
         kernels_load(kernels)
 
     def _orbit_init(self, date: dict, chosen_planet: str) -> None:
@@ -46,7 +46,7 @@ class Orbit:
         # Initialization of ET time
         self._et_time = spiceypy.utc2et(self._utc_time_str)
 
-        naif_id = NAIF_PLANETS_ID[chosen_planet]
+        naif_id = NAIF_PLANETS_ID[chosen_planet.capitalize()]
 
         # Calculating a ceres state vector and time of light's travel between
         # the ceres and the sun
@@ -84,7 +84,7 @@ class Orbit:
         # Ceres orbital period
         self.orbit_period_years = _orbit_planet_elements[10] / (86400 * 365)
 
-    def _orbit_params(self) -> dict:
+    def show_params(self) -> dict:
         """
         Create a dictionary with orbit parameters
 
