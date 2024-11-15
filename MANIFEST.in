@@ -1,2 +1,2 @@
-recursive-include PySpace2 *.tls *.tpc *.bsp
+recursive-include PySpace2 *.tls *.tpc *.bsp *.tf
 prune example

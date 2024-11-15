@@ -5,20 +5,7 @@ from spiceypy.utils.exceptions import SpiceNOSUCHFILE
 
 from .utilities.kernels_utilities import download_file
 from .utilities.kernels_constants import KERNELS_URLS
-
-REQUIRED_FILES = {
-    "earth": ["spk/de432s.bsp", "pck/gm_de431.tpc"],
-    "first_kepler": ["spk/de432s.bsp", "pck/pck00010.tpc"],
-    "solar_system": ["spk/de432s.bsp", "pck/pck00010.tpc"],
-    "phase_angel": ["spk/de432s.bsp", "pck/pck00010.tpc"],
-    "venus": [
-        "spk/de432s.bsp",
-        "lsk/naif0012.tls",
-        "pck/pck00010.tpc",
-    ],
-    "map": ["spk/de432s.bsp", "lsk/naif0012.tls"],
-}
-
+from .utilities.kernels_constants import REQUIRED_FILES
 
 class PySpace2:
 
@@ -130,7 +117,7 @@ class PySpace2:
 
     @staticmethod
     def map(date: dict, chosen_planets: list[str]):
-        """Create a Venus object
+        """Create a Map object
 
         Parameters:
         -----------
@@ -146,3 +133,21 @@ class PySpace2:
             return Map(date, chosen_planets)
         except SpiceNOSUCHFILE:
             PySpace2._handle_spice_exception("map")
+
+    @staticmethod
+    def orbit(date: dict, chosen_planet: str):
+        """Create a Orbit object
+
+        Parameters:
+        -----------
+        date : dict
+            Day to calculate planet's orbit parameters
+        chosen_planet : str
+            Chosen planet for the calculations
+        """
+        try:
+            from .planets.orbit import Orbit
+
+            return Orbit(date, chosen_planet)
+        except SpiceNOSUCHFILE:
+            PySpace2._handle_spice_exception("orbit")
