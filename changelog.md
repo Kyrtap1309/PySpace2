@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.3.1] - 15.11.2024
+### Added
+- Add new functionality called **Orbit**
+- **Orbit** allow to calculate parameters of orbit of many celestial bodies in Solar System
+
 ## [0.2.2] - 05.11.2024
 ### Added
 - Add gallery to README
