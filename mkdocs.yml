@@ -8,6 +8,7 @@ nav:
     - examples/maps_example.py
     - examples/phase_angel_example.py
     - examples/downloading_kernels.py
+    - examples/orbit.example.py
 theme:
   name: material
 plugins:

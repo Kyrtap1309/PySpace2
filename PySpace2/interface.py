@@ -117,7 +117,7 @@ class PySpace2:
 
     @staticmethod
     def map(date: dict, chosen_planets: list[str]):
-        """Create a Venus object
+        """Create a Map object
 
         Parameters:
         -----------
