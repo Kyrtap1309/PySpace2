@@ -133,3 +133,21 @@ class PySpace2:
             return Map(date, chosen_planets)
         except SpiceNOSUCHFILE:
             PySpace2._handle_spice_exception("map")
+
+    @staticmethod
+    def orbit(date: dict, chosen_planet: str):
+        """Create a Orbit object
+
+        Parameters:
+        -----------
+        date : dict
+            Day to calculate planet's orbit parameters
+        chosen_planet : str
+            Chosen planet for the calculations
+        """
+        try:
+            from .planets.orbit import Orbit
+
+            return Orbit(date, chosen_planet)
+        except SpiceNOSUCHFILE:
+            PySpace2._handle_spice_exception("orbit")
