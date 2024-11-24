@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.4.1] - 24.11.2024
+### Added
+- Add `SQLite3` database to store MPC Comets' data (for future applications)
+
 ## [0.3.1] - 15.11.2024
 ### Added
 - Add new functionality called **Orbit**
