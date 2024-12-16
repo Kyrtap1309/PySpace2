@@ -28,7 +28,7 @@ pip install PySpace2
 If you are installing the package from the repository, ensure you have the latest version of pip, and then install it locally:
 
 ```bash
-git clone git@github.com:your-account/pyspace2.git
+git clone https://github.com/Kyrtap1309/PySpace2.git
 cd pyspace2
 pip install .
 ```
