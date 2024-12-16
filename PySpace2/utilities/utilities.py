@@ -15,7 +15,7 @@ def kernels_load(kernels_path: list[str]) -> None:
         kernels_path (list[str]): List of relative paths
     """
     for kernel_path in kernels_path:
-        spiceypy.furnsh(_get_furnsh_kernel_path(kernel_path))
+        spiceypy.furnsh(get_furnsh_path(kernel_path))
 
 
 def create_folder_if_not_exists(folder_path: str) -> None:
@@ -90,7 +90,7 @@ def get_utc_time(date_dict: dict):
 
     return utc_date
 
-def _get_furnsh_kernel_path(kernel_path: str) -> str:
+def get_furnsh_path(path: str) -> str:
     """
     Function to obtain the full path to a kernel file based on the project's location.
 
@@ -103,11 +103,11 @@ def _get_furnsh_kernel_path(kernel_path: str) -> str:
     caller_frame = inspect.stack()[1]
     caller_file = caller_frame.filename
     dir = os.path.dirname(os.path.abspath(caller_file))
-    furnsh_kernel_path = os.path.join(dir, kernel_path)
+    furnsh_path = os.path.join(dir, path)
 
     current_os = platform.system()
 
     if current_os == "Windows":
-        furnsh_kernel_path = furnsh_kernel_path.replace("/", "\\")
+        furnsh_path = furnsh_path.replace("/", "\\")
 
-    return furnsh_kernel_path
+    return furnsh_path
