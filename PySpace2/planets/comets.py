@@ -3,7 +3,9 @@ import sqlite3
 import numpy as np
 import pandas as pd
 
-from ..utilities.utilities import get_furnsh_path
+from matplotlib import pyplot as plt
+
+from ..utilities.utilities import get_furnsh_path, show_or_save_fig
 
 
 class Comets:
@@ -60,3 +62,49 @@ class Comets:
             """
 
         return description
+    
+    def plot_inc_vs_aph(
+        self,
+        save_fig: bool = True,
+        dpi: str = 500,
+        fig_name: str = "Comet_plot_inc_aph.png",
+        dir: str = "./plots",
+    ) -> None:
+        """
+        Plots the inclination vs aphelion of comets with bound orbits
+
+        """
+
+        plt.style.use("dark_background")
+        plt.rcParams.update({"font.size": 14})
+
+        fig, ax = plt.subplots(figsize=(12, 8))
+        ax.scatter(self.p_type_def["APHELION_AU"], 
+                   self.p_type_def["INCLINATION_DEG"], 
+                   color="tab:orange", 
+                   marker='.', 
+                   label="P type comets",
+                   alpha=0.2)
+        
+        ax.scatter(self.c_type_def.loc[self.c_type_def["ECCENTRICITY"]<1]["APHELION_AU"],
+                   self.c_type_def.loc[self.c_type_def["ECCENTRICITY"]<1]["INCLINATION_DEG"],
+                   color="tab:blue",
+                   marker='o',
+                   label="C type comets with bound orbits",
+                   alpha=0.7)
+        
+        ax.set_xscale("log")
+        ax.set_ylim(0, 180)
+
+        ax.grid(True, axis="both", linestyle="--", alpha=0.3)
+
+        ax.set_title("Inclination vs Aphelion of comets")
+        ax.set_xlabel("Aphelion distance [AU]")
+        ax.set_ylabel("Inclination [deg]")
+
+        leg = ax.legend(loc="upper right", bbox_to_anchor=[1.1, 1.1], prop={"size": 10})
+
+        for lh in leg.legendHandles:
+            lh.set_alpha(1)
+
+        show_or_save_fig(dir=dir, fig_name=fig_name, save_fig=save_fig, dpi=dpi)
