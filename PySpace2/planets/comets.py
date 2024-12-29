@@ -108,3 +108,4 @@ class Comets:
             lh.set_alpha(1)
 
         show_or_save_fig(dir=dir, fig_name=fig_name, save_fig=save_fig, dpi=dpi)
+    

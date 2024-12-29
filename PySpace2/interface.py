@@ -151,3 +151,13 @@ class PySpace2:
             return Orbit(date, chosen_planet)
         except SpiceNOSUCHFILE:
             PySpace2._handle_spice_exception("orbit")
+
+    @staticmethod
+    def comets():
+        """Create a Comets object"""
+        try:
+            from .planets.comets import Comets
+
+            return Comets()
+        except SpiceNOSUCHFILE:
+            PySpace2._handle_spice_exception("comets")
