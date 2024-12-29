@@ -102,9 +102,9 @@ class Comets:
         ax.set_xlabel("Aphelion distance [AU]")
         ax.set_ylabel("Inclination [deg]")
 
-        leg = ax.legend(loc="upper right", bbox_to_anchor=[1.1, 1.1], prop={"size": 10})
+        leg = ax.legend(fancybox = True, loc="upper right", bbox_to_anchor=[1.1, 1.1], prop={"size": 10})
 
-        for lh in leg.legendHandles:
+        for lh in leg.legend_handles:
             lh.set_alpha(1)
 
         show_or_save_fig(dir=dir, fig_name=fig_name, save_fig=save_fig, dpi=dpi)
