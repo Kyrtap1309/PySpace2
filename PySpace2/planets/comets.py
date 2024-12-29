@@ -13,7 +13,7 @@ class Comets:
         """
         Initialize the Comets class with the database connection
         """
-        _sql_path = get_furnsh_path("../database/comets.db")
+        _sql_path = get_furnsh_path("../databases/mpc_comets.db")
 
         #Connect to the comets database
         _conn = sqlite3.connect(_sql_path)
