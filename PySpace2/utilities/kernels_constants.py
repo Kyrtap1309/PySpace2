@@ -26,4 +26,5 @@ REQUIRED_FILES = {
         "general/codes_300ast_20100725.bsp",
         "general/codes_300ast_20100725.tf",
     ],
+    "comets": [],
 }
