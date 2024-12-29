@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.5.1] - 29.12.2024
+### Added
+- Add new functionality called **Comets**
+- **Comets** allow to plot Inclination data to Aphelion data of C and P comets
+- **Comets** functionality is the first usage of database connection in PySpace2 Package
+
 ## [0.4.1] - 24.11.2024
 ### Added
 - Add `SQLite3` database to store MPC Comets' data (for future applications)
