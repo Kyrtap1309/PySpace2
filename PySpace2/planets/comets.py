@@ -26,7 +26,7 @@ class Comets:
             _conn,
         )
         self.c_type_def = pd.read_sql(
-            'SELECT APHELION_AU, INCLINATION_DEG FROM comets_main WHERE ORBIT_TYPE="C"',
+            'SELECT APHELION_AU, INCLINATION_DEG, ECCENTRICITY FROM comets_main WHERE ORBIT_TYPE="C"',
             _conn,
         )
 
