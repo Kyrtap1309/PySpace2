@@ -62,8 +62,3 @@ class Earth:
         The Earth orbital speed around the Sun equals for: {round(self.earth_sun_speed, 3)}" km/s\n
         The theoretical Earth orbital speed around the Sun equals for: {round(self.earth_sun_speed_theory, 3)} km/s)\n"""
         return info
-
-
-if __name__ == "__main__":
-    earth = Earth()
-    print(earth)
