@@ -183,25 +183,3 @@ class Venus:
             ),
             axis=1,
         )
-
-
-if __name__ == "__main__":
-    begin_date = {
-        "year": 2001,
-        "month": 9,
-        "day": 13,
-        "hour": 5,
-        "minute": 0,
-        "second": 0,
-    }
-    end_date = {
-        "year": 2001,
-        "month": 10,
-        "day": 8,
-        "hour": 3,
-        "minute": 0,
-        "second": 0,
-    }
-    venus = Venus(begin_date, end_date)
-    print(venus)
-    venus.plot()

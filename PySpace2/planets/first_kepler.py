@@ -161,8 +161,3 @@ class FirstKepler:
         show_or_save_fig(dir=dir, fig_name=fig_name, save_fig=save_fig, dpi=dpi)
 
 
-if __name__ == "__main__":
-    date = {"year": 2001, "month": 9, "day": 13, "hour": 5, "minute": 0, "second": 0}
-    first_kepler = FirstKepler(date=date, delta_days=5000)
-    print(first_kepler)
-    first_kepler.trajectory()

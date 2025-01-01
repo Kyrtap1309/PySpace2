@@ -36,9 +36,9 @@ jobs:
 
       - name: Publish to PyPI
         env:
-          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
-        run: twine upload dist/*
+          TWINE_USERNAME: "__token__"
+          TWINE_PASSWORD: ${{ secrets.PYSPACE2_TOKEN_2025 }}
+        run: twine upload dist/* --verbose
 
       - name: Create Git tag
         run: |

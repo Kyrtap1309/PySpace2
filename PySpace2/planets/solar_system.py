@@ -105,8 +105,3 @@ class SolarSystem(FirstKepler):
 
         show_or_save_fig(dir=dir, fig_name=fig_name, save_fig=save_fig, dpi=dpi)
 
-
-if __name__ == "__main__":
-    date = {"year": 2001, "month": 9, "day": 13, "hour": 5, "minute": 0, "second": 0}
-    solar_system = SolarSystem(delta_days=5000, date=date)
-    solar_system.plot()

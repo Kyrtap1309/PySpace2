@@ -141,9 +141,3 @@ class PhaseAngle(SolarSystem):
                 )
             )
 
-
-if __name__ == "__main__":
-    chosen_planets = ["Mars", "Jupiter", "Saturn", "Uran"]
-    date = {"year": 2001, "month": 9, "day": 13, "hour": 5, "minute": 0, "second": 0}
-    phase_angel = PhaseAngle(date=date, delta_days=5000, chosen_planets=chosen_planets)
-    phase_angel.plot()

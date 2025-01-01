@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.5.2] - 01.01.2025
+### Fixed
+- Github Workflow was updates since changes in pypi publishing authorisation
+### Removed
+- `if __name__ == "__main__"` was removed because it is pointless when package has its own examples in documentation 
+
 ## [0.5.1] - 29.12.2024
 ### Added
 - Add new functionality called **Comets**

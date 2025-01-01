@@ -1,6 +1,6 @@
 [project]
 name = "PySpace2"
-version = "0.5.1"
+version = "0.5.2"
 description = "Python package for astronomical calculations"
 readme = "README.md"
 authors = [

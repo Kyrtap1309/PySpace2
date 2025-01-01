@@ -196,10 +196,3 @@ class Map:
         plt.grid(True)
 
         show_or_save_fig(dir=dir, fig_name=fig_name, save_fig=save_fig, dpi=dpi)
-
-
-if __name__ == "__main__":
-    chosen_planets = ["Sun", "Venus", "Moon", "Mars"]
-    date = {"year": 2020, "month": 5, "day": 5, "hour": 17, "minute": 14, "second": 0}
-    map = Map(date=date, chosen_planets=chosen_planets)
-    map.plot_map()
